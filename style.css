@@ -1,0 +1,437 @@
+/* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+}
+
+/* Hero Carousel Section */
+.hero-carousel-section {
+    position: relative; /* For positioning social icons and carousel items */
+    background-color: #fdf9f6; /* Light beige background if images don't fill/load */
+}
+
+/* Bootstrap: .carousel-item */
+#heroCarousel .carousel-item {
+    height: 85vh; /* MODIFIED: Increased from 70vh */
+    min-height: 550px; /* MODIFIED: Increased from 450px */
+}
+
+#heroCarousel .carousel-item img {
+    object-fit: cover; /* Cover the area without stretching */
+    object-position: center; /* Center the image */
+    height: 100%;
+    width: 100%;
+    /* Bootstrap's .img-fluid can also be used but object-fit gives more control for fixed height containers */
+}
+
+/* Bootstrap: .carousel-caption - heavily customized */
+/* We use Bootstrap utilities for positioning, and custom CSS for appearance */
+#heroCarousel .carousel-caption {
+    /* Bootstrap utilities will handle position, top, start, transform.
+       Default .carousel-caption is for bottom placement and hidden on < md.
+       We need to make it always visible and change text color. */
+    display: block !important; /* Ensures it's always visible, overriding d-none d-md-block */
+    color: #333; /* Dark text for light background, override Bootstrap's default #fff */
+    /* Other positioning is now handled by utility classes on the HTML element */
+    padding-top: 0; /* Reset padding if utilities handle spacing */
+    padding-bottom: 0; /* Reset padding */
+    /* Bootstrap's text-center utility will be used on the element */
+}
+
+.hero-title {
+    font-size: 2.5rem; /* Custom style */
+    font-weight: 300;   /* Custom style */
+    letter-spacing: 0.3em; /* Custom style */
+    text-transform: uppercase; /* Custom style */
+    margin-bottom: 1.5rem; /* Custom style */
+    color: #333; /* Ensure color if not inherited properly */
+}
+
+/* Bootstrap: .btn - customized appearance */
+.hero-button {
+    font-size: 0.9rem; /* Custom style */
+    padding: 0.6rem 2rem; /* Custom style */
+    border: 1px solid #333; /* Custom style */
+    color: #333; /* Custom style */
+    background-color: transparent; /* Custom style */
+    text-transform: none; /* Custom style */
+    letter-spacing: 0.05em; /* Custom style */
+    transition: all 0.3s ease; /* Custom style */
+}
+
+.hero-button:hover {
+    background-color: #333; /* Custom style */
+    color: #fff; /* Custom style */
+    border-color: #333; /* Custom style */
+}
+
+/* Bootstrap: .carousel-control-prev/next - customized appearance */
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next {
+    width: 5%;
+    opacity: 0.7;
+}
+#heroCarousel .carousel-control-prev-icon,
+#heroCarousel .carousel-control-next-icon {
+    background-image: none; /* Remove default Bootstrap SVGs to use Font Awesome */
+    font-size: 2rem;
+    color: #333; /* Darker chevrons */
+}
+/* To color Bootstrap's default SVG icons instead of FontAwesome:
+#heroCarousel .carousel-control-prev-icon,
+#heroCarousel .carousel-control-next-icon {
+    filter: invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(90%);
+}
+*/
+
+/* Social Icons - Custom component */
+.social-icons-vertical {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons-vertical a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%; /* Bootstrap: .rounded-circle */
+    font-size: 1rem;
+    text-decoration: none; /* Bootstrap: .text-decoration-none */
+    transition: background-color 0.3s ease;
+}
+.social-icons-vertical a:hover {
+    background-color: #555;
+}
+
+/* Bootstrap: .carousel-indicators - hidden */
+#heroCarousel .carousel-indicators {
+    display: none;
+}
+
+/* --- Header Styles --- */
+.header-top {
+    background-color: #343a40; /* Dark grey, similar to Bootstrap's .bg-dark */
+    color: #f8f9fa; /* Light grey/white text */
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.site-logo {
+    font-family: 'Arial', sans-serif; /* Or a more specific modern sans-serif if you have one */
+    font-size: 4rem; /* Large font size */
+    font-weight: 300; /* Lighter font weight */
+    letter-spacing: 0.2em; /* Spacing between letters */
+    text-transform: lowercase;
+    color: #212529; /* Dark text color */
+    padding: 2rem 0; /* Padding above and below logo */
+    text-align: center;
+}
+
+/* Customizing navbar elements */
+.navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee; /* Optional: a light bottom border */
+}
+
+.navbar .nav-link {
+    color: #555; /* Slightly lighter than default black for nav links */
+    font-size: 0.95rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar .nav-link:hover {
+    color: #000;
+}
+
+.navbar-search-area,
+.navbar-user-area {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-search-area .form-control {
+    border: none;
+    box-shadow: none;
+    padding-left: 0.5rem; /* Space after icon */
+    font-style: italic;
+    color: #777;
+}
+.navbar-search-area .form-control::placeholder {
+    color: #999;
+}
+.navbar-search-area i {
+    color: #777;
+}
+
+
+.navbar-user-area .nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-user-area .nav-link i {
+    margin-right: 0.3rem;
+}
+
+.navbar-user-area .badge {
+    font-size: 0.7em;
+    margin-left: 0.3rem;
+}
+
+/* For finer control of spacing between nav groups */
+.navbar-nav.main-nav {
+    /* This will be centered by mx-auto if it's the only one,
+       or use flex utilities on the parent if more complex */
+}
+
+.new-arrivals-section {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .new-arrivals-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            border: none; /* No border as in the example */
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative; /* For the sale badge */
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            /* Simulating the aspect ratio of your images a bit */
+            /* You might want to ensure your images have consistent aspect ratios */
+            aspect-ratio: 1 / 1.2; /* Adjust as needed */
+            object-fit: contain;
+        }
+
+        .product-card .product-name {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .product-card .product-price {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .product-card .product-price .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-weight: normal;
+            margin-right: 5px;
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px; /* Or right: 10px depending on preference */
+            background-color: #d9534f; /* A reddish sale color */
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            border-radius: 3px;
+            z-index: 10;
+        }
+
+        /* Carousel Controls Customization */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%; /* Make arrows less wide */
+            opacity: 0.7;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0,0,0,0.1); /* Light background for visibility */
+            border-radius: 50%;
+            padding: 15px; /* Make icon area larger */
+            background-size: 50% 50%; /* Make the arrow itself smaller within the circle */
+        }
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+        }
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        /* Fixed Social Icons */
+        .fixed-social-icons {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .fixed-social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .fixed-social-icons a:hover {
+            background-color: #555;
+        }
+.bitten{
+    background-color: #000;
+    color: white;
+    border-style: none;
+}
+
+
+
+        .site-footer {
+            background-color: #fff; /* White background */
+            padding-top: 60px;
+            padding-bottom: 30px;
+            font-size: 0.9rem;
+            color: #555; /* Default text color for footer links/text */
+        }
+
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 300; /* Lighter font weight */
+            color: #333;
+            text-transform: lowercase; /* As in "happy kids" */
+            margin-bottom: 40px;
+        }
+
+        .footer-nav-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-nav-list li {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav-list a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .footer-nav-list a:hover {
+            color: #000;
+        }
+
+        .footer-social-icons a {
+            font-size: 1.5rem; /* Larger icons */
+            color: #333;
+            margin: 0 10px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .footer-social-icons a:hover {
+            color: #000;
+        }
+
+        .mailing-list-title {
+            font-size: 1.8rem; /* Slightly smaller than brand */
+            font-weight: 300;
+            color: #333;
+            margin-top: 50px; /* Space above mailing list */
+            margin-bottom: 30px;
+        }
+
+        .mailing-list-form .form-label {
+            font-size: 0.85rem;
+            color: #555;
+            display: block; /* Make label take full width above input */
+            margin-bottom: 0.25rem;
+        }
+
+        .mailing-list-form .form-control {
+            border-radius: 0; /* Sharp corners for input */
+            border: 1px solid #ccc;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+        }
+        .mailing-list-form .form-control:focus {
+            border-color: #333;
+            box-shadow: none;
+        }
+
+        .mailing-list-form .form-check-label {
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .mailing-list-form .form-check-input {
+            border-radius: 0;
+            border-color: #777;
+        }
+        .mailing-list-form .form-check-input:checked {
+            background-color: #333;
+            border-color: #333;
+        }
+
+        .mailing-list-form .btn-subscribe {
+            background-color: #222; /* Dark button */
+            color: #fff;
+            border: none;
+            border-radius: 0; /* Sharp corners */
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .mailing-list-form .btn-subscribe:hover {
+            background-color: #444;
+        }
+
+        .footer-copyright {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        .footer-copyright a {
+            color: #555;
+            text-decoration: underline;
+        }
+        .footer-copyright a:hover {
+            color: #000;
+        }
+
+        /* Responsive adjustments for form layout */
+        @media (max-width: 767.98px) {
+            .mailing-list-form .form-check {
+                margin-bottom: 1rem; /* Space between checkbox and button on small screens */
+            }
+        }
+
